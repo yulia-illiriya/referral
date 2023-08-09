@@ -51,12 +51,24 @@ class UserSerializer(serializers.ModelSerializer):
 
 class SimpleUserProfileSerializer(serializers.ModelSerializer):
     
+    """
+    Простой сериалайзер, который выводит 
+    только нужные нам поля без вложенностей
+    """
+    
     class Meta:
         model = UserProfile
         fields = ['phone', 'name']
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
+    
+    """
+    Основной сериалайзер, который сериализует все поля и 
+    добавляет информацию о юзере и о том, чей код он использовал
+    и кто использовал его
+    """
+    
     invited_users = serializers.SerializerMethodField()
     invited_by = serializers.SerializerMethodField()
     referral_code = serializers.ReadOnlyField()
@@ -64,14 +76,32 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserProfile
-        fields = ['referral_code', 'invited_users', 'invited_by', 'user', 'phone', 'name', 'surname', 'photo', 'is_referral_code_activate']        
+        fields = [
+            'referral_code', 
+            'invited_users', 
+            'invited_by', 
+            'user', 
+            'phone', 
+            'name', 
+            'surname', 
+            'photo', 
+            'is_referral_code_activate'
+            ]        
         
         
     def get_invited_users(self, user_profile):
+        
+        """Получаем приглашенных нами юзеров"""
+        
         invited_users = UserProfile.objects.filter(invite=user_profile)
         return SimpleUserProfileSerializer(invited_users, many=True).data
 
-    def get_invited_by(self, user_profile):        
+    def get_invited_by(self, user_profile):
+        
+        """
+        Получаем пригласившего нас юзера
+        """
+                
         return SimpleUserProfileSerializer(user_profile.invite).data if user_profile.invite else None
     
     def validate(self, data):
@@ -88,6 +118,13 @@ class UserProfileSerializer(serializers.ModelSerializer):
         return data
     
     def update(self, instance, validated_data):
+        
+        """
+        Переопределяем функцию обновления.
+        Профиль создается автоматически, поэтому 
+        метода добавления нет
+        """
+        
         invited_by = validated_data['invited_by']
         
         print(validated_data)

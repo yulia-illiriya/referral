@@ -10,6 +10,12 @@ from .models import User, UserProfile
 
 
 class UserProfileView(viewsets.ModelViewSet):
+    
+    """
+    Используем вьюсеты, чтобы было меньше кода. 
+    Этот отвечает за профиль.
+    """
+    
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
 
@@ -21,6 +27,11 @@ class UserVIewSet(viewsets.ModelViewSet):
 
 @api_view(['POST'])
 def login(request):
+    
+    """
+    Функция для первой части процесса авторизации и/или входа
+    """
+    
     serializer = LoginSerializer(data=request.data)
     
     if serializer.is_valid():      

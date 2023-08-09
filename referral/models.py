@@ -29,6 +29,13 @@ class User(AbstractBaseUser, PermissionsMixin):
 
         
 class UserProfile(models.Model):
+    
+    """
+    Профиль - таблица с дополнительными данными 
+    о юзере. В основном работаем с ней и инвайты храним тоже в ней.
+
+    """
+    
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE
     )
