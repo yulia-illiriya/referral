@@ -1,0 +1,192 @@
+{
+	"info": {
+		"_postman_id": "f18540a2-94aa-418b-bfe7-285fb91f47ce",
+		"name": "web",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23255922"
+	},
+	"item": [
+		{
+			"name": "http://165.232.73.226/api/v1/profile/user-profiles/5/",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://165.232.73.226/api/v1/profile/user-profiles/5/",
+					"protocol": "http",
+					"host": [
+						"165",
+						"232",
+						"73",
+						"226"
+					],
+					"path": [
+						"api",
+						"v1",
+						"profile",
+						"user-profiles",
+						"5",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://165.232.73.226/api/v1/profile/user-profiles/3/",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "invited_by",
+							"value": "mAB1HT",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://165.232.73.226/api/v1/profile/user-profiles/3/",
+					"protocol": "http",
+					"host": [
+						"165",
+						"232",
+						"73",
+						"226"
+					],
+					"path": [
+						"api",
+						"v1",
+						"profile",
+						"user-profiles",
+						"3",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://165.232.73.226/api/v1/profile/user-profiles/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://165.232.73.226/api/v1/profile/user-profiles/",
+					"protocol": "http",
+					"host": [
+						"165",
+						"232",
+						"73",
+						"226"
+					],
+					"path": [
+						"api",
+						"v1",
+						"profile",
+						"user-profiles",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://165.232.73.226/api/v1/login/code/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "confirm_code",
+							"value": "1234aa",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://165.232.73.226/api/v1/login/code/",
+					"protocol": "http",
+					"host": [
+						"165",
+						"232",
+						"73",
+						"226"
+					],
+					"path": [
+						"api",
+						"v1",
+						"login",
+						"code",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://165.232.73.226/api/v1/login/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "phone",
+							"value": "{{$randomPhoneNumber}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://165.232.73.226/api/v1/login/",
+					"protocol": "http",
+					"host": [
+						"165",
+						"232",
+						"73",
+						"226"
+					],
+					"path": [
+						"api",
+						"v1",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://165.232.73.226/api/v1/profile/user-profiles/3/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://165.232.73.226/api/v1/profile/user-profiles/3/",
+					"protocol": "http",
+					"host": [
+						"165",
+						"232",
+						"73",
+						"226"
+					],
+					"path": [
+						"api",
+						"v1",
+						"profile",
+						"user-profiles",
+						"3",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
